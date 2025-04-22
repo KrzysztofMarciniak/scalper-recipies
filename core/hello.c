@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../scalper-recipe.h"
+#include "scalper-recipe.h"
 static const char *deps[]        = {"make", "gcc", NULL};
 static const char *build_tools[] = {"curl", "tar", "make", NULL};
 void buildHello(Build *ctx) {
