@@ -31,7 +31,7 @@ typedef struct recipe {
   const char **use_flags;    // NULL-terminated
   void (*build)(Build *ctx);
 } Recipe;
-inline void die(const char *fmt, ...) {
+void die(const char *fmt, ...) {
   va_list args;
   fprintf(stderr, "scalper: ");
   va_start(args, fmt);
@@ -40,7 +40,7 @@ inline void die(const char *fmt, ...) {
   fprintf(stderr, "\n");
   exit(1);
 }
-inline int checkBuildTools(Build *ctx, const char **tools) {
+int checkBuildTools(Build *ctx, const char **tools) {
   int all_ok = 1;
   for (int i = 0; tools[i] != NULL; i++) {
     char cmd[256];
@@ -55,7 +55,7 @@ inline int checkBuildTools(Build *ctx, const char **tools) {
   }
   return all_ok;
 }
-inline int checkDependencies(Build *ctx, const char **deps) {
+int checkDependencies(Build *ctx, const char **deps) {
   int all_ok = 1;
   for (int i = 0; deps[i] != NULL; i++) {
     char cmd[256];

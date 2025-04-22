@@ -41,3 +41,17 @@ Recipe helloRecipe = {
     .use_flags   = NULL,
     .build       = buildHello,
 };
+int main(int argc, char *argv[]) {
+  Build ctx = {
+      .prefix    = "/usr/local",
+      .workdir   = "/tmp/scalper_build",
+      .cachedir  = "/tmp/scalper_cache",
+      .verbose   = 1,
+      .dry_run   = 0,
+      .error_flags = 0,
+      .use_flags = NULL
+  };
+
+  buildHello(&ctx);
+  return ctx.error_flags;
+}
